@@ -175,7 +175,7 @@ em, .accent { color: var(--teal); font-style: italic; }
 .pillars { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--navy); }
 
 /* About */
-.about-photo { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; }
+.about-photo { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; height: auto; }
 .pullquote { font-family: var(--serif); font-size: clamp(1.4rem, 2.6vw, 1.9rem); color: var(--navy); font-style: italic; text-align: center; max-width: 30ch; margin: 0 auto; }
 
 /* Resources */
