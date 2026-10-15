@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Revenue Recovery Solutions</title>
+<meta name="description" content="Schedule a consultation. Tell us about your practice and where you're experiencing insurance or revenue-cycle challenges.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0f2547">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Let&rsquo;s Recover <em>Your Revenue.</em></h1>
+      <hr class="rule">
+      <p class="lead">Tell us a little about your practice and where you&rsquo;re experiencing insurance or revenue-cycle challenges.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <div class="form-card reveal">
+        <!-- TODO: replace YOUR_FORM_ID with a real Formspree (or Web3Forms) endpoint -->
+        <form id="consult-form" action="https://formspree.io/f/YOUR_FORM_ID" method="post">
+          <div class="form-grid">
+            <div><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+            <div><label for="practice">Practice Name</label><input id="practice" name="practice" type="text" autocomplete="organization" required></div>
+            <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+            <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div><label for="providers">Number of Providers</label><input id="providers" name="providers" type="number" min="1"></div>
+            <div><label for="software">Practice Management Software</label><input id="software" name="software" type="text" placeholder="e.g. Dentrix, Eaglesoft, Open Dental"></div>
+            <div class="full">
+              <label for="plans">PPO / FFS / Both</label>
+              <select id="plans" name="plans">
+                <option value="">Select one</option>
+                <option>PPO</option>
+                <option>FFS</option>
+                <option>Both</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="challenges">What challenges are you experiencing?</label>
+              <textarea id="challenges" name="challenges"></textarea>
+            </div>
+            <fieldset class="full">
+              <legend>What would you like help with?</legend>
+              <div class="checks">
+                <label><input type="checkbox" name="help[]" value="Denied claims"> Denied claims</label>
+                <label><input type="checkbox" name="help[]" value="Aging insurance A/R"> Aging insurance A/R</label>
+                <label><input type="checkbox" name="help[]" value="Claim follow-up"> Claim follow-up</label>
+                <label><input type="checkbox" name="help[]" value="Documentation/narratives"> Documentation/narratives</label>
+                <label><input type="checkbox" name="help[]" value="Insurance workflow"> Insurance workflow</label>
+                <label><input type="checkbox" name="help[]" value="Staff/practice training"> Staff/practice training</label>
+                <label><input type="checkbox" name="help[]" value="Revenue cycle assessment"> Revenue cycle assessment</label>
+                <label><input type="checkbox" name="help[]" value="Not sure where to start"> Not sure where to start</label>
+              </div>
+            </fieldset>
+            <p class="notice full">Please do not include patient names or other patient information in this form.</p>
+            <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="full"><button class="btn btn-gold" type="submit">Schedule a Consultation</button><p id="form-status" class="form-status" role="status"></p></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="js/main.js"></script>
+</body>
+</html>
