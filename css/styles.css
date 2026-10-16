@@ -98,7 +98,17 @@ em, .accent { color: var(--teal); font-style: italic; }
 .hero .tags { margin-top: 36px; font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--navy-soft); }
 .hero .tags span { color: var(--gold); margin: 0 10px; }
 .wave { position: absolute; left: 0; right: 0; bottom: -1px; height: 70px; z-index: 2; }
-@media (max-width: 760px) { .hero::after { opacity: .3; width: 90vw; } }
+@media (max-width: 760px) {
+  /* Photo becomes a soft band under the text instead of sitting behind the buttons */
+  .hero { padding-bottom: 300px; }
+  .hero::after {
+    width: 82%; opacity: .9;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 40%), linear-gradient(0deg, #000 50%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(90deg, transparent, #000 40%), linear-gradient(0deg, #000 50%, transparent);
+    mask-composite: intersect;
+  }
+}
 
 /* Page header (inner pages) */
 .page-hero { background: linear-gradient(180deg, #fbf9f5, #edf3f1); padding: clamp(48px, 7vw, 84px) 0 clamp(40px, 6vw, 64px); }
@@ -124,7 +134,7 @@ em, .accent { color: var(--teal); font-style: italic; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 @media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
 .photo-meeting {
-  min-height: 340px; border-radius: var(--radius);
+  aspect-ratio: 452 / 283; width: 100%; border-radius: var(--radius);
   background: url("../assets/Coastal Dental Revenue Recovery Homepage.png") 0% 55.7% / 191% auto no-repeat;
 }
 
