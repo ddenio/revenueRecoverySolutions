@@ -1,14 +1,16 @@
 (function () {
   var pages = [
-    ["index.html", "Home"],
-    ["services.html", "Services"],
-    ["how-it-works.html", "How It Works"],
-    ["who-we-serve.html", "Who We Serve"],
-    ["about.html", "About"],
-    ["resources.html", "Resources"],
-    ["contact.html", "Contact"]
+    ["/", "Home"],
+    ["/services", "Services"],
+    ["/how-it-works", "How It Works"],
+    ["/who-we-serve", "Who We Serve"],
+    ["/about", "About"],
+    ["/resources", "Resources"],
+    ["/contact", "Contact"]
   ];
-  var current = location.pathname.split("/").pop() || "index.html";
+  // Normalise /about, /about/ and /about.html to "/about"; index/empty to "/"
+  var current = "/" + location.pathname.replace(/^\/+|\/+$/g, "").replace(/\.html$/, "");
+  if (current === "/index") current = "/";
 
   var links = pages.map(function (p) {
     return '<a class="link' + (p[0] === current ? " active" : "") + '" href="' + p[0] + '">' + p[1] + "</a>";
@@ -19,10 +21,10 @@
     header.className = "site-header";
     header.innerHTML =
       '<div class="container header-inner">' +
-      '<a class="logo" href="index.html" aria-label="Revenue Recovery Solutions — home"></a>' +
+      '<a class="logo" href="/" aria-label="Revenue Recovery Solutions — home"></a>' +
       '<button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>' +
       '<nav class="nav" id="nav" aria-label="Main">' + links +
-      '<a class="btn btn-gold" href="contact.html">Let’s Recover Your Revenue</a></nav></div>';
+      '<a class="btn btn-gold" href="/contact">Let’s Recover Your Revenue</a></nav></div>';
     var toggle = header.querySelector(".menu-toggle");
     var nav = header.querySelector(".nav");
     toggle.addEventListener("click", function () {
@@ -36,18 +38,18 @@
     footer.className = "site-footer";
     footer.innerHTML =
       '<div class="container footer-grid">' +
-      '<div><a class="logo" href="index.html" aria-label="Revenue Recovery Solutions — home"></a>' +
+      '<div><a class="logo" href="/" aria-label="Revenue Recovery Solutions — home"></a>' +
       '<p class="footer-tag">Recovering Revenue. Restoring Confidence.</p></div>' +
       '<div><h4>Navigation</h4><ul>' +
       pages.map(function (p) { return '<li><a href="' + p[0] + '">' + p[1] + "</a></li>"; }).join("") +
       "</ul></div>" +
       '<div><h4>Let’s Connect</h4>' +
       "<p>Let’s talk about how we can help you reclaim what you’ve earned.</p>" +
-      '<p><a class="btn btn-gold" href="contact.html">Schedule a Consultation</a></p>' +
+      '<p><a class="btn btn-gold" href="/contact">Schedule a Consultation</a></p>' +
       '<p><a href="mailto:info@rrsdental.com">info@rrsdental.com</a></p></div>' +
       "</div>" +
       '<div class="footer-bar">© ' + new Date().getFullYear() +
-      ' Revenue Recovery Solutions. All rights reserved. &nbsp;|&nbsp; <a href="privacy.html" style="color:#fff">Privacy Policy</a></div>';
+      ' Revenue Recovery Solutions. All rights reserved. &nbsp;|&nbsp; <a href="/privacy" style="color:#fff">Privacy Policy</a></div>';
   }
 
   // Line icons, used as <i data-icon="name"></i>
