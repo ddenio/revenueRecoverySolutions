@@ -44,11 +44,10 @@
       '<div><h4>Let’s Connect</h4>' +
       "<p>Let’s talk about how we can help you reclaim what you’ve earned.</p>" +
       '<p><a class="btn btn-gold" href="contact.html">Schedule a Consultation</a></p>' +
-      // TODO: confirm email + location with client
-      '<p><a href="mailto:info@revenuerecoverysolutions.com">info@revenuerecoverysolutions.com</a></p></div>' +
+      '<p><a href="mailto:info@rrsdental.com">info@rrsdental.com</a></p></div>' +
       "</div>" +
       '<div class="footer-bar">© ' + new Date().getFullYear() +
-      " Revenue Recovery Solutions. All rights reserved.</div>";
+      ' Revenue Recovery Solutions. All rights reserved. &nbsp;|&nbsp; <a href="privacy.html" style="color:#fff">Privacy Policy</a></div>';
   }
 
   // Line icons, used as <i data-icon="name"></i>
@@ -93,6 +92,15 @@
     items.forEach(function (el) { io.observe(el); });
   } else {
     items.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  // Checklist signup placeholder until an email tool is connected
+  var checklist = document.getElementById("checklist-form");
+  if (checklist) {
+    checklist.addEventListener("submit", function (e) {
+      e.preventDefault();
+      checklist.querySelector("button").textContent = "Coming soon";
+    });
   }
 
   // Contact form (Formspree / Web3Forms compatible: set the form's action)
