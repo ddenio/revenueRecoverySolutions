@@ -75,7 +75,8 @@ em, .accent { color: var(--teal); font-style: italic; }
 .menu-toggle { display: none; background: none; border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; font-size: 1rem; color: var(--navy); cursor: pointer; }
 
 @media (max-width: 1020px) {
-  .menu-toggle { display: block; }
+  /* Sit level with the logo lettering rather than the sun above it */
+  .menu-toggle { display: block; align-self: flex-end; margin-bottom: 16px; }
   .nav {
     display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start;
     gap: 0; background: var(--cream); padding: 12px 20px 22px; border-bottom: 1px solid var(--line);
